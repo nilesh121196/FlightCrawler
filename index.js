@@ -57,9 +57,9 @@ app.get('/iataAirlines',function(req, res){
 	res.sendFile(path.join(__dirname + '/public/iataAirline.js'))
 });
 
-app.get('/iataAirports',(req, res)=>{
-	res.sendFile(path.join(__dirname + '/public/iataAirports.json'))
-})
+// app.get('/iataAirports',(req, res)=>{
+// 	res.sendFile(path.join(__dirname + '/public/iataAirports.json'))
+// })
 
 app.listen(app.get('port'), function(){
 	console.log('App is run on port', app.get('port'));
