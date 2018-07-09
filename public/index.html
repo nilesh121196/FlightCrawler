@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AirCaterpillar | The Crawler</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+     <script src="./jquery.tabletoCSV.js" type="text/javascript" ></script>
+ 	 <script src="./jsLogic.js" type="text/javascript" ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+   	<script type="text/javascript" src="./iataAirlines"></script>
+   	<script type="text/javascript" src="./iataAirports"></script>
+    <script type="text/javascript"></script>
+    <style type="text/css">
+    	.foot {
+              text-align: center;
+              height: 7vh;
+              position: fixed;
+              padding-top: 0px;
+              width: 100vw;
+              bottom: 0;
+          }
+    </style>
+</head>
+<body>
+<div class="container">
+	<div class="row ">
+		<div class="col s12 center indigo-text darken-4">
+			<h1>AirCaterpillar</h1>	
+		</div>
+			
+	</div>
+	<div class="row flow-text">
+		<div class="col s12 center">
+			<h4>Want to Search Flight?
+		Just <b>AirCaterpillar</b> it.</h4> 
+		</div>
+		
+	</div>
+	
+</div>
+<div class="container ">
+	<div class="row">
+		<div class="col s12 center  blue darken-1 card">
+			 <form id="f1">
+			 	<div class="input-field col s4">
+		          <input id="origin" name="getOrigin" type="text" class="validate autocomplete" required="required">
+		          <label for="origin" class="white-text">Origin</label>
+		        </div>
+		        <div class="input-field col s4">
+		          <input id="destination" name="getDestiny" type="text" class="validate autocomplete" required="required">
+		          <label for="destination" class="white-text">Destination</label>
+		        </div>
+		         <div class="input-field col s4">
+		          <input id="DateOfJourney" name="getDOJ" type="text" class="datepicker validate" required="required">
+		          <label for="DateOfJourney" class="white-text">Date of Journey</label> 
+		        </div>
+
+		    </form>
+		</div>
+		<div id="buttonDiv">
+		<button form="f1" id="sb1" class="col s12 m12 waves-effect waves-light btn amber darken-2">Check</button>
+		</div>
+		<div id="loaderDiv" hidden="hidden">
+			<div class="progress amber darken-2">
+      				<div class="indeterminate white"></div>
+			</div>
+		</div>
+</div>
+</div>
+<div class="container-fluid card"  id="tableDiv" hidden="hidden">
+	<div class="row"><p> </p></div>
+	<div class="row">
+		<div class="col s1 offset-s11">
+			<a class='dropdown-trigger btn amber darken-2' href='#' data-target='dropdown1'>Export</a>
+
+			  <!-- Dropdown Structure -->
+			  <ul id='dropdown1' class='dropdown-content'>
+			    <li><a href="#!" id="exportToCsv" class="amber-text">.CSV</a></li>
+			    <li><a href="#!" class="amber-text">.PDF</a></li>
+			  </ul>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s12">
+			<table id="mainTable" class="responsive-table centered highlight">
+	        <thead>
+	          <tr>
+	              <th>S.No</th>
+	              <th>Mode</th>
+	              <th>Origin</th>
+	              <th>Destination</th>
+	              <th>Airline</th>
+	              <th>Airline IATA</th>
+	              <th>Flight Number</th>
+	              <th>Departure</th>
+	              <th>Arrival</th>
+	              <th>Journey Time (HH:MM)</th>
+	              <th>Taxes/Adult(Rs.)</th>
+	              <th>Total Fare/Adult(Rs.)</th>
+	          </tr>
+	        </thead>
+
+	        <tbody id="TableBody">
+	          
+	        </tbody>
+      		</table>
+		</div>
+	</div>
+</div>
+
+<!-- ------------------------------------------------Export Logic----------------------------------------------------------- -->
+
+	<table id="secTable" class="responsive-table centered highlight" hidden="hidden">
+	        <caption id="tableCaption"></caption>
+	        <thead>
+	          <tr>
+	              <th>S.No</th>
+	              <th>Mode</th>
+	              <th>Origin</th>
+	              <th>Destination</th>
+	              <th>Airline</th>
+	              <th>Airline IATA</th>
+	              <th>Flight Number</th>
+	              <th>Departure</th>
+	              <th>Arrival</th>
+	              <th>Journey Time (HH:MM)</th>
+	              <th>Taxes/Adult(Rs.)</th>
+	              <th>Total Fare/Adult(Rs.)</th>
+	          </tr>
+	        </thead>
+
+	        <tbody id="secTableBody">
+	          
+	        </tbody>
+     </table>
+
+<!-- -------------------------------------------------/Export Logic--------------------------------------------------------- -->
+
+
+<div id="errorBoard" hidden="hidden">
+	
+</div>
+
+ <footer class="foot blue darken-1" id="bot">
+            <h6>Developed by <a href="https://www.linkedin.com/in/nilesh121196" class="white-text"><strong>Team WellNeels</strong></a> | <strong>&hearts;</strong>Design</h6>
+ </footer>
+</body>
+
+</html>
